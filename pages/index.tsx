@@ -38,6 +38,11 @@ const Home = ({posts}: Props) => {
                                 urlFor(post.mainImage).url()!
                             } alt={post.title} />
                         )}
+                        <div>
+                            <p>{post.title}</p>
+                            <p>{post.description} by {post.author.name}</p>
+                        </div>
+                        <div></div>
                     </div>
                 </Link>
             ))}
