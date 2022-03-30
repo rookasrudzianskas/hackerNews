@@ -4,12 +4,22 @@ import Header from "../../components/Header";
 import {Post} from "../../typings";
 import {GetStaticProps} from "next";
 import PortableText from 'react-portable-text';
+import { useForm, SubmitHandler } from "react-hook-form";
+
 
 interface Props {
     post: Post;
 }
+interface IFormInput {
+    id: string,
+    name?: string,
+    email: string,
+    comment: string,
+}
 const Post = ({post}: Props) => {
     // console.log('🚀', post);
+    const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>();
+
     // @ts-ignore
     return (
         <main>
