@@ -32,16 +32,16 @@ const Home = ({posts}: Props) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-3 md: gap-6 p-2 md:p-6">
             {posts.map(post => (
                 <Link key={post._id} href={`/post/${post.slug.current}`}>
-                    <div className="">
+                    <div className="group cursor-pointer border rounded-lg overflow-hidden">
                             <img
-                                className="h-60 w-full object-cover"
+                                className="h-60 w-full object-cover group-hover:scale-105 trasition-transform duration-200 ease-in-out"
                                 src={
                                 urlFor(post.mainImage).url()!
                             } alt={post.title} />
                         <div className="flex justify-between p-5 bg-white">
                             <div>
-                                <p>{post.title}</p>
-                                <p>{post.description} by {post.author.name}</p>
+                                <p className="font-bold">{post.title}</p>
+                                <p className="text-sm">{post.description} by {post.author.name}</p>
                             </div>
                         <div>
                             <img className="w-12 h-12 rounded-full" src={urlFor(post.author.image).url()!} alt=""/>
