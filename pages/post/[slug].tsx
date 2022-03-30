@@ -2,6 +2,8 @@ import React from 'react';
 import {sanityClient, urlFor} from '../../sanity';
 import Header from "../../components/Header";
 import {Post} from "../../typings";
+import {GetStaticProps} from "next";
+import {async} from "rxjs";
 
 const Post = () => {
     return (
@@ -34,3 +36,7 @@ export const getStaticPaths = async () => {
         fallback: 'blocking',
     }
 };
+
+export const getStaticProps: GetStaticProps = async ({params}) => {
+
+}
