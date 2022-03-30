@@ -15,6 +15,7 @@ const Post = () => {
 export default Post;
 
 // prepares the pages
+// this getes all the pages paths
 export const getStaticPaths = async () => {
     const query = `
     *[_type == "post"]{
@@ -38,6 +39,7 @@ export const getStaticPaths = async () => {
 };
 
 //this makes the page
+// this uses the paths to make the page of it with info fetched from sanity
 export const getStaticProps: GetStaticProps = async ({params}) => {
     const query = `
     *[_type == "post"  && slug.current == $slug][0]{
@@ -58,5 +60,21 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     const post = await sanityClient.fetch(query, {slug: {
         slug: params?.slug,
        }});
+
+    if(!post) {
+        return {
+            notFound: true
+            // will return 404 if the page is not found
+        }
+
+        return {
+            props: {
+                post: post,
+            }
+        }
+
+    }
+
+
 
 }
