@@ -1,6 +1,7 @@
 import React from 'react';
 import {sanityClient, urlFor} from '../../sanity';
 import Header from "../../components/Header";
+import {Post} from "../../typings";
 
 const Post = () => {
     return (
@@ -19,5 +20,17 @@ export const getStaticPaths = async () => {
         slug {
             current
         }
-    }`
+    }`;
+
+    const posts = await sanityClient.fetch(query);
+    const paths = posts.map((post: Post) => ({
+        params: {
+            slug: post.slug.current
+        }
+    }));
+
+    return {
+        paths,
+        fallback: 'blocking',
+    }
 };
