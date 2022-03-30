@@ -10,6 +10,7 @@ interface Props {
 }
 const Post = ({post}: Props) => {
     // console.log('🚀', post);
+    // @ts-ignore
     return (
         <main>
             <Header />
@@ -24,6 +25,31 @@ const Post = ({post}: Props) => {
                     <p className="font-extralight text-sm">Blog post by <span className="text-green-600">{post.author.name}</span> - Published at {new Date(post._createdAt).toLocaleString()}</p>
                 </div>
 
+                <div>
+                    <PortableText
+                        dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
+                        projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
+                        content={post.body}
+                        className=""
+                        serializers={
+                            {
+                                h1: (props: any) => (
+                                  <h1 className="text-2xl font-bold my-5" {...props} />
+                                ),
+                                h2: (props: any) => (
+                                    <h1 className="text-xl font-bold my-5" {...props} />
+                                ),
+                                //@ts-ignore
+                                li: ({children}) => (
+                                    <li className="ml-4 list-disc" >{children}</li>
+                                ),
+                                link: ({href, children}: any) => (
+                                    <a href={href} className="text-blue-500 hover:underline">{children}</a>
+                                ),
+                            }
+                        }
+                    />
+                </div>
 
 
             </article>
