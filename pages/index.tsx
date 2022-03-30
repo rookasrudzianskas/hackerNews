@@ -4,7 +4,11 @@ import Image from 'next/image'
 import Header from "../components/Header";
 import {sanityClient, urlFor} from '../sanity';
 
-const Home: NextPage = (props) => {
+interface Props {
+  posts: [Post];
+}
+
+const Home: NextPage = (props: Props) => {
   return (
     <div className="max-w-7xl mx-auto">
       <Head>
