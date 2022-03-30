@@ -2,7 +2,7 @@ import React from 'react';
 import {sanityClient, urlFor} from '../../sanity';
 import Header from "../../components/Header";
 import {Post} from "../../typings";
-import {GetStaticProps} from "next";
+import { GetStaticProps } from 'next/types';
 
 const Post = () => {
     return (
@@ -14,6 +14,7 @@ const Post = () => {
 
 export default Post;
 
+// prepares the pages
 export const getStaticPaths = async () => {
     const query = `
     *[_type == "post"]{
@@ -36,6 +37,26 @@ export const getStaticPaths = async () => {
     }
 };
 
+//this makes the page
 export const getStaticProps: GetStaticProps = async ({params}) => {
+    const query = `
+    *[_type == "post"  && slug.current == $slug][0]{
+        _id,
+        _createdAt,
+        title,
+        author -> {
+                name,
+                    image
+        },
+
+    description,
+    mainImage,
+    slug,
+    body
+  }`;
+
+    const post = await sanityClient.fetch(query, {slug: {
+        slug: params?.slug,
+       }});
 
 }
