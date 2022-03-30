@@ -3,6 +3,7 @@ import {sanityClient, urlFor} from '../../sanity';
 import Header from "../../components/Header";
 import {Post} from "../../typings";
 import {GetStaticProps} from "next";
+import PortableText from 'react-portable-text';
 
 interface Props {
     post: Post;
@@ -22,6 +23,9 @@ const Post = ({post}: Props) => {
                     <img src={urlFor(post.author.image).url()!} className="h-10 w-10 rounded-full" alt=""/>
                     <p className="font-extralight text-sm">Blog post by <span className="text-green-600">{post.author.name}</span> - Published at {new Date(post._createdAt).toLocaleString()}</p>
                 </div>
+
+
+
             </article>
         </main>
     );
