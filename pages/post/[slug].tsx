@@ -101,6 +101,13 @@ const Post = ({post}: Props) => {
                         className="shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-500 outline-none focus:ring " placeholder="John Appleseed is a super blockchain hero" rows={8} />
                 </label>
 
+
+                <div>
+                    {errors.name && <span className="text-red-500">The name field is required</span>}
+                    {errors.comment && <span className="text-red-500">The comment field is required</span>}
+                    {errors.email && <span className="text-red-500">The email field is required</span>}
+                </div>
+
             </form>
         </main>
         </>
