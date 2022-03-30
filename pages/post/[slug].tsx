@@ -13,6 +13,10 @@ const Post = ({post}: Props) => {
         <main>
             <Header />
             <img src={urlFor(post.mainImage).url()} className="w-full object-cover h-40" alt=""/>
+
+            <article className="max-w-3xl mx-auto p-5">
+                <h1 className="text-3xl mt-10 mb-3">{post.title}</h1>
+            </article>
         </main>
     );
 };
