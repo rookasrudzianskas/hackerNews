@@ -23,4 +23,8 @@ export const config = {
 
 export const sanityClient = createClient(config);
 
+// for image url builder
 export const urlFor = (source) => createImageUrlBuilder(config).image(source);
+
+// helper function for using the current logged-in user account
+export const useCurrentUser = createCurrentUserHook(config);
