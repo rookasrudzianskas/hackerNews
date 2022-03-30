@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Header from "../components/Header";
 import {sanityClient, urlFor} from '../sanity';
 import {Post} from "../typings";
+import Link from "next/link";
 
 interface Props {
   posts: [Post];
@@ -26,6 +27,20 @@ const Home = ({posts}: Props) => {
                 <h2>It is easy and free to post your thinking on any topic and connect with millions of readers</h2>
             </div>
             <img className="hidden md:inline-flex h-32 lg:h-full" src="https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png" alt=""/>
+        </div>
+
+        <div>
+            {posts.map(post => (
+                <Link key={post._id} href={`/post/${post.slug.current}`}>
+                    <div>
+                        {post.mainImage && (
+                            <img src={
+                                urlFor(post.mainImage).url()!
+                            } alt={post.title} />
+                        )}
+                    </div>
+                </Link>
+            ))}
         </div>
     </div>
   )
