@@ -21,6 +21,7 @@ const Post = ({post}: Props) => {
     const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>();
 
     // @ts-ignore
+    // @ts-ignore
     return (
         <main>
             <Header />
@@ -70,6 +71,14 @@ const Post = ({post}: Props) => {
                 <h3 className="text-sm text-yellow-500">Enjoyed this article?</h3>
                 <h4 className="text-3xl font-bold">Leave a comment below!</h4>
                 <hr className="py-3 mt-2"/>
+
+                <input
+                    {/*@ts-ignore*/}
+                    {...register("_id")}
+                    type="hidden"
+                    name="_id"
+                    value={post._id}
+                />
 
                 <label htmlFor="" className="block mb-5">
                     <span className="text-gray-700 ">Name</span>
