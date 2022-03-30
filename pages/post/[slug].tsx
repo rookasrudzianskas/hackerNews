@@ -102,11 +102,13 @@ const Post = ({post}: Props) => {
                 </label>
 
 
-                <div>
+                <div className="flex flex-col p-5">
                     {errors.name && <span className="text-red-500">The name field is required</span>}
                     {errors.comment && <span className="text-red-500">The comment field is required</span>}
                     {errors.email && <span className="text-red-500">The email field is required</span>}
                 </div>
+
+                <input type="submit" className="shadow bg-yellow-500 hover:bg-yellow-400 focus:shadow-outline cursor-pointer text-white font-bold py-2 rounded px-4"/>
 
             </form>
         </main>
