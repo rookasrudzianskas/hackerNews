@@ -53,6 +53,23 @@ const Post = ({post}: Props) => {
 
 
             </article>
+
+            <hr className="max-w-lg my-5 mx-auto border border-yellow-500" />
+
+            <form action="" className="flex flex-col p-5 max-w-2xl mx-auto mb-10">
+                <label htmlFor="">
+                    <span>Name</span>
+                    <input placeholder="John Appleseed" type="text"/>
+                </label>
+                <label htmlFor="">
+                    <span>Email</span>
+                    <input placeholder="john.appleseed@john.com" type="text"/>
+                </label>
+                <label htmlFor="">
+                    <span>Comment</span>
+                    <textarea placeholder="John Appleseed is a super blockchain hero" rows={8} />
+                </label>
+            </form>
         </main>
     );
 };
