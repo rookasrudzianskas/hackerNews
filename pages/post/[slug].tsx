@@ -16,6 +16,12 @@ const Post = ({post}: Props) => {
 
             <article className="max-w-3xl mx-auto p-5">
                 <h1 className="text-3xl mt-10 mb-3">{post.title}</h1>
+                <h2 className="text-xl font-light text-gray-500 mb-2">{post.description}</h2>
+
+                <div className="flex items-center space-x-2">
+                    <img src={urlFor(post.author.image).url()!} className="h-10 w-10 rounded-full" alt=""/>
+                    <p className="font-extralight text-sm">Blog post by <span className="text-green-600">{post.author.name}</span> - Published at {new Date(post._createdAt).toLocaleString()}</p>
+                </div>
             </article>
         </main>
     );
