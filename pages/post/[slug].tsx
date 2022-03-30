@@ -78,7 +78,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
         props: {
             post: post,
         },
-        revalidate: 60,
+        revalidate: 60, // after 60 seconds it will remake the page 🚀
     }
 
 };
