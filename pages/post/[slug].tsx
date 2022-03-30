@@ -20,6 +20,10 @@ const Post = ({post}: Props) => {
     // console.log('🚀', post);
     const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>();
 
+    const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+
+    }
+
     // @ts-ignore
     // @ts-ignore
     return (
