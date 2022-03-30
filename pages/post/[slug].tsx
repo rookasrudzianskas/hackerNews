@@ -8,10 +8,11 @@ interface Props {
     post: Post;
 }
 const Post = ({post}: Props) => {
-    console.log('🚀', post);
+    // console.log('🚀', post);
     return (
         <main>
             <Header />
+            <img src={urlFor(post.mainImage).url()} className="w-full object-cover h-40" alt=""/>
         </main>
     );
 };
