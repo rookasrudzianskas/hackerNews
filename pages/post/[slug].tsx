@@ -23,6 +23,7 @@ const Post = ({post}: Props) => {
     // @ts-ignore
     // @ts-ignore
     return (
+        <>
         <main>
             <Header />
             <img src={urlFor(post.mainImage).url()} className="w-full object-cover h-40" alt=""/>
@@ -73,7 +74,6 @@ const Post = ({post}: Props) => {
                 <hr className="py-3 mt-2"/>
 
                 <input
-                    {/*@ts-ignore*/}
                     {...register("_id")}
                     type="hidden"
                     name="_id"
@@ -97,6 +97,7 @@ const Post = ({post}: Props) => {
 
             </form>
         </main>
+        </>
     );
 };
 
