@@ -3,7 +3,6 @@ import {sanityClient, urlFor} from '../../sanity';
 import Header from "../../components/Header";
 import {Post} from "../../typings";
 import {GetStaticProps} from "next";
-import {async} from "rxjs";
 
 const Post = () => {
     return (
