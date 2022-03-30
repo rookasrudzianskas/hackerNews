@@ -2,9 +2,13 @@ import React from 'react';
 import {sanityClient, urlFor} from '../../sanity';
 import Header from "../../components/Header";
 import {Post} from "../../typings";
-import { GetStaticProps } from 'next/types';
+import {GetStaticProps} from "next";
 
-const Post = () => {
+interface Props {
+    post: Post;
+}
+const Post = ({post}: Props) => {
+    console.log('🚀', post);
     return (
         <main>
             <Header />
@@ -15,7 +19,7 @@ const Post = () => {
 export default Post;
 
 // prepares the pages
-// this getes all the pages paths
+// this gets all the pages paths
 export const getStaticPaths = async () => {
     const query = `
     *[_type == "post"]{
@@ -42,13 +46,13 @@ export const getStaticPaths = async () => {
 // this uses the paths to make the page of it with info fetched from sanity
 export const getStaticProps: GetStaticProps = async ({params}) => {
     const query = `
-    *[_type == "post"  && slug.current == $slug][0]{
+    *[_type == "post" && slug.current == $slug][0]{
         _id,
         _createdAt,
         title,
         author -> {
                 name,
-                    image
+                image
         },
 
     description,
@@ -57,24 +61,23 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     body
   }`;
 
-    const post = await sanityClient.fetch(query, {slug: {
+    const post = await sanityClient.fetch(query, {
         slug: params?.slug,
-       }});
+       });
 
     if(!post) {
         return {
             notFound: true
             // will return 404 if the page is not found
         }
-
-        return {
-            props: {
-                post: post,
-            }
-        }
-
     }
 
 
 
-}
+    return {
+        props: {
+            post: post,
+        }
+    }
+
+};
