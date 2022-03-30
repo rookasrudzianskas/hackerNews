@@ -29,21 +29,23 @@ const Home = ({posts}: Props) => {
             <img className="hidden md:inline-flex h-32 lg:h-full" src="https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png" alt=""/>
         </div>
 
-        <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-3 md: gap-6 p-2 md:p-6">
             {posts.map(post => (
                 <Link key={post._id} href={`/post/${post.slug.current}`}>
-                    <div>
-                        {post.mainImage && (
-                            <img src={
+                    <div className="">
+                            <img
+                                className="h-60 w-full object-cover"
+                                src={
                                 urlFor(post.mainImage).url()!
                             } alt={post.title} />
-                        )}
+                        <div className="flex justify-between p-5 bg-white">
+                            <div>
+                                <p>{post.title}</p>
+                                <p>{post.description} by {post.author.name}</p>
+                            </div>
                         <div>
-                            <p>{post.title}</p>
-                            <p>{post.description} by {post.author.name}</p>
+                            <img className="w-12 h-12 rounded-full" src={urlFor(post.author.image).url()!} alt=""/>
                         </div>
-                        <div>
-                            <img src={urlFor(post.author.image).url()!} alt=""/>
                         </div>
                     </div>
                 </Link>
