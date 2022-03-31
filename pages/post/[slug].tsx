@@ -35,6 +35,8 @@ const Post = ({post}: Props) => {
         })
     };
 
+    console.log('This is a comment',  post);
+
     // @ts-ignore
     // @ts-ignore
     return (
@@ -133,6 +135,18 @@ const Post = ({post}: Props) => {
 
                 </form>
             )}
+
+
+        {/*    Comments */}
+            <div className="">
+                <h3>Comments</h3>
+                <hr/>
+                {post.comments.map((comment) => (
+                    <div className="">
+                        {/*<p>{comment.name}:{comment.comment}</p>*/}
+                    </div>
+                ))}
+            </div>
 
         </main>
         </>
