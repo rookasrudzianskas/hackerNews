@@ -98,7 +98,7 @@ const Post = ({post}: Props) => {
                     <hr className="py-3 mt-2"/>
 
                     <input
-                        {...register("_id")}
+                        {...register("id")}
                         type="hidden"
                         name="_id"
                         value={post._id}
