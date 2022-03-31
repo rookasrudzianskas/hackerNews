@@ -33,5 +33,6 @@ export default async function createComment(
         return res.status(500).json({message: `Couldn't create comment`, error});
     }
 
+    console.log(`Comment created 👨‍🚀`);
     return res.status(200).json({message: `Comment created`});
 }
