@@ -95,7 +95,7 @@ const Post = ({post}: Props) => {
                     <span className="text-gray-700 ">Email</span>
                     <input
                         {...register("email", { required: true})}
-                        className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500  outline-none focus:ring" placeholder="john.appleseed@john.com" type="text"/>
+                        className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500  outline-none focus:ring" placeholder="john.appleseed@john.com" type="email"/>
                 </label>
 
                 <label htmlFor="" className="block mb-5">
