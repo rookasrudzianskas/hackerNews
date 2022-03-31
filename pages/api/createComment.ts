@@ -1,5 +1,5 @@
+import sanityClient from '@sanity/client';
 import type { NextApiRequest, NextApiResponse } from 'next'
-import {sanityClient} from "../../sanity";
 
 const config = {
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
