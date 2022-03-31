@@ -22,7 +22,10 @@ const Post = ({post}: Props) => {
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         // console.log('🚀', data);
-
+        await fetch('/api/createComment', {
+            method: 'POST',
+            body: JSON.stringify(data)
+        });
     };
 
     // @ts-ignore
