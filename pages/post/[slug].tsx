@@ -25,7 +25,11 @@ const Post = ({post}: Props) => {
         await fetch('/api/createComment', {
             method: 'POST',
             body: JSON.stringify(data)
-        });
+        }).then(() => {
+            console.log('🚀', data);
+        }).catch((err) => {
+            console.log(err);
+        })
     };
 
     // @ts-ignore
