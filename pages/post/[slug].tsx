@@ -17,6 +17,7 @@ interface IFormInput {
     comment: string,
 }
 const Post = ({post}: Props) => {
+    const [submitted, setSubmitted] = React.useState(false);
     // console.log('🚀', post);
     const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>();
 
@@ -27,8 +28,10 @@ const Post = ({post}: Props) => {
             body: JSON.stringify(data)
         }).then(() => {
             console.log('🚀', data);
+            setSubmitted(true);
         }).catch((err) => {
             console.log(err);
+            setSubmitted(false);
         })
     };
 
