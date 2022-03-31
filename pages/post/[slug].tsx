@@ -39,6 +39,7 @@ const Post = ({post}: Props) => {
 
     // @ts-ignore
     // @ts-ignore
+    // @ts-ignore
     return (
         <>
         <main>
@@ -141,9 +142,10 @@ const Post = ({post}: Props) => {
             <div className="">
                 <h3>Comments</h3>
                 <hr/>
-                {post.comments.map((comment) => (
+                {/*@ts-ignore*/}
+                {post.comment.map((comments) => (
                     <div className="">
-                        {/*<p>{comment.name}:{comment.comment}</p>*/}
+                        <p>{comments.name}:{comments.comment}</p>
                     </div>
                 ))}
             </div>
